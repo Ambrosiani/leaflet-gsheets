@@ -154,5 +154,6 @@ function addPoints(data) {
       marker.setIcon(icon);
     }
   }
+  map.fitBounds(pointGroupLayer.getBounds());
 }
 
