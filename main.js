@@ -71,8 +71,8 @@ function init() {
  * addPoints is a bit simpler, as no GeoJSON is needed for the points
  */
 function addPoints(data) {
-  console.log(data);
   data = data.data;
+  console.log(data);
   let pointGroupLayer = L.layerGroup().addTo(map);
 
   // Choose marker type. Options are:
@@ -90,15 +90,15 @@ function addPoints(data) {
   for (let row = 0; row < data.length; row++) {
     let marker;
     if (markerType == "circleMarker") {
-      marker = L.circleMarker([data[row].Latitud, data[row].Longitud], {
+      marker = L.circleMarker([data[row]["Latitud"], data[row]["Longitud"]], {
         radius: markerRadius,
       });
     } else if (markerType == "circle") {
-      marker = L.circle([data[row].Latitud, data[row].Longitud], {
+      marker = L.circle([data[row]["Latitud"], data[row]["Longitud"]], {
         radius: markerRadius,
       });
     } else {
-      marker = L.marker([data[row].Latitud, data[row].Longitud]);
+      marker = L.marker([data[row]["Latitud"], data[row]["Longitud"]]);
     }
     marker.addTo(pointGroupLayer);
 
@@ -108,12 +108,12 @@ function addPoints(data) {
     // COMMENT THE NEXT GROUP OF LINES TO DISABLE SIDEBAR FOR THE MARKERS
     marker.feature = {
       properties: {
-        institution: data.elements[row]["Institution"],
-        dokumentation: data.elements[row]["Dokumentationens namn"],
-        url: data.elements[row]["Dokumentationens webbplats"],
-        kontaktperson: data.elements[row]["Kontaktperson"],
-        mejl: data.elements[row]["Mejl till kontaktperson (om det ska synas)"],
-        telefon: data.elements[row]["Telefonnr till kontaktperson (om det ska synas)"]
+        institution: data[row]["Institution"],
+        dokumentation: data[row]["Dokumentationens namn"],
+        url: data[row]["Dokumentationens webbplats"],
+        kontaktperson: data[row]["Kontaktperson"],
+        mejl: data[row]["Mejl till kontaktperson (om det ska synas)"],
+        telefon: data[row]["Telefonnr till kontaktperson (om det ska synas)"]
       },
     };
     marker.on({
