@@ -71,8 +71,8 @@ function init() {
  * addPoints is a bit simpler, as no GeoJSON is needed for the points
  */
 function addPoints(data) {
+  console.log(data);
   data = data.data;
-  console.log(data[0]);
   let pointGroupLayer = L.layerGroup().addTo(map);
 
   // Choose marker type. Options are:
