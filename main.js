@@ -72,7 +72,6 @@ function init() {
  */
 function addPoints(data) {
   data = data.data;
-  console.log(data);
   let pointGroupLayer = L.layerGroup().addTo(map);
 
   // Choose marker type. Options are:
