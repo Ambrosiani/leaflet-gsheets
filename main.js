@@ -89,15 +89,15 @@ function addPoints(data) {
   for (let row = 0; row < data.length; row++) {
     let marker;
     if (markerType == "circleMarker") {
-      marker = L.circleMarker([data[row].lat, data[row].lon], {
+      marker = L.circleMarker([data[row].Latitud, data[row].Longitud], {
         radius: markerRadius,
       });
     } else if (markerType == "circle") {
-      marker = L.circle([data[row].lat, data[row].lon], {
+      marker = L.circle([data[row].Latitud, data[row].Longitud], {
         radius: markerRadius,
       });
     } else {
-      marker = L.marker([data[row].lat, data[row].lon]);
+      marker = L.marker([data[row].Latitud, data[row].Longitud]);
     }
     marker.addTo(pointGroupLayer);
 
